@@ -10,6 +10,16 @@ https://tritondeveloperconference.splashthat.com/?full_url=https%3A%2F%2Ftritond
 7.warp specialization
 8.what is register spilling?
 9.eba
+10.vector dialect, artifact example
+11.vector engine, tensor engine , scalar engine GPSIMD SBUF PSUM and HBM.
+12 Triton leads to the neuron kernel interface
+13.Tile semantics .torch autograd.
+14.Qualcom Hexagon NPU
+15.epilogue hiding, software pipelining . TMA support.
+16.Triton is on the right track to be adopted by whole industry 
+17.metaprogramming ,MLIR based tracing DSL.Mosiac thread.PTX into a kernel 
+18.TMA, or Tensor Memory Accelerator, is a feature introduced in NVIDIA's Hopper architecture that enables asynchronous memory copying between global memory (GMEM) and shared memory (SMEM) on GPUs. This functionality is particularly beneficial for improving performance in deep learning and high-performance computing applications.
+19.
 
 
 
