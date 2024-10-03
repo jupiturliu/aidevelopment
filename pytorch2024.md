@@ -33,4 +33,4 @@ https://pytorch.org/executorch-overview
 TorchInductor CPU Backedn Advancement
 1.OpemMP, Halide CPU Codegen, Triton CPU Codegen.
 2.ATen Vectorzied abstraction. 
-3.
+3.Here are some summary
