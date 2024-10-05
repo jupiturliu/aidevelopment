@@ -38,3 +38,7 @@ Research: Experimenting with new neural network architectures and operations.
 **dynamic ** specifies whether to enable the code path for Dynamic Shapes. Certain compiler optimizations cannot be applied to dynamic shaped programs
 
 Compile Mode vs Eager Mode
+
+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
+
+# 10/4/2024
