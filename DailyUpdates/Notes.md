@@ -42,3 +42,38 @@ Compile Mode vs Eager Mode
 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
 
 # 10/4/2024
+
+# 10/8/2024
+
+* cache-line aware work assignment. bam_ptr
+* page cache not only in GPU but CPU.
+* GMCT is GPU multiple cache tier
+  ![](assets/20241008_150016_image.png)
+* TTPoE is a lossy transport protocol
+* 突出两部分，一部分是芯片，一部分是路标
+
+# 10/9/2024
+fabricmanager:responsible for configuring the intra-node NV link fabric
+![alt text](image.png)
+
+UFM(Unified Fabric Manager) is a software package offered by Nvidia that handles network management , performance optimization and monitoring. The CS9500's liquid cool
+Weights & Biases(W&B) is a popular tool used for tracking and managing machine learning experiments. It provides a comprehensive paltform for developers and researchers
+to visualize ,optimize and collaborate on their machine learning workflows.
+
+# 10/10/2024
+AMD advancing AI 
+computing engine , open software solution .DPU->UAlink->UEC,Data for CPU processing, GPU for traning and inference.AMD is taking 34% market share.Microsoft, OpenAI Meta is using AMD instinct MI300 series.
+
+AMD end to end AI infrastructure leader.SILO AI is especially focusing on inference and training.push the limits on performance.leveraging OCP platform .
+
+AMD GPU ,Naveen Rao.Databricks is also using MI300X.they are using ROCm. No modification. Very fast and iterate very fast.
+
+We are just at beginning of the AI.performance/dollar/watt.1.5 millions EPIC CPU.MI300X is very instrumental in production.1M models in HuggingFace can run in AMD. 
+
+REka vs Fireworks vs essential AI vs LUMA AI
+
+Why Triton,Optimizing Matrix multiplication.
+Graph compilers, is always about the performance and complexity. Triton development timeline.
+Users defined tensors in SRAM, and modify them using torch-like operators.
+
+Reducting technical debts.Triton is a mid-level kernel programming language. Triton trades off performance for productivity.Triton allowed OpenAI to scale kernel development.Triton allowed OpenAI to increase research productivity. Triton is portable across different GPU architectures.
