@@ -77,3 +77,29 @@ Graph compilers, is always about the performance and complexity. Triton developm
 Users defined tensors in SRAM, and modify them using torch-like operators.
 
 Reducting technical debts.Triton is a mid-level kernel programming language. Triton trades off performance for productivity.Triton allowed OpenAI to scale kernel development.Triton allowed OpenAI to increase research productivity. Triton is portable across different GPU architectures.
+
+Evolution of LLama. Herd to stack. Llama3.x 128K can run GPUs and on-devices,it can support text and image, with Llama Stack.
+
+Distilled and pruned from 8B and 70B. Rewriting and summarization.Next Multimodal models will be 90B and 11B on Llama 3.2. It is adapter architecture and visual recognition. base and isntruct open source model.
+
+Constraint decoding:JSON schema->Regular expression.CPU was used to schedule data. Vectorize CPU operations/Overlap CPU scheduling.
+
+Reka is very likely not exist any more.
+# 10/14/2024
+How GPU works with CPU
+1. Copy the input data from host memory to device memory, also known as host-to-device transfer.
+2. Load the GPU program and execute, caching data on-chip for performance.
+3. Copy the results from device memory to host memory, also called device-to-host transfer.
+
+A function that is called by the host to execute on GPU is called a kernel.A kernel is executed as a grid of thread blocks.
+[Image]
+A kernel is executed as a grid of thread blocks, the entirety of blocks is called the grid of that application. Threads in an application are grouped into blocks, A CUDA application is composed of multiple blocks of threads with each thread calls a kernel once.
+
+Cuda introduced a software mechanism called CUDA streams, a workload queue for the device
+![alt text](image-1.png)
+In CUDA programming, there are two major concepts , one is host ,another one is device.The host is the CPU available in the system, Every CUDA kernel starts with a __global__ declaration specifier, Programmers provide a unique global ID to each thread by using build-in variables.
+
+<<<…>>> these triple angle brackets mark a call from host code to device code,  It is also called a kernel launch.
+ The following memories are exposed by the GPU architecture: Registers,these are private to each thread.The compiler makes decision about register utilization.L1/Shared memory(SMEM).L2 cache is shared across all SMs. so every thread in every CUDA block can access this memory.Global memory is the framebuffer size of the GPU and DRAM sitting in the GPU.The CUDA programming model also assumes that both the host and device maintain their own separate memory spaces, referred to as host memory and device memory, respectively.Cuda code also provides for data transfer between host and device memory over the PCIe bus
+
+In H100, there is a new concept called thread block clusters .A cluster is a group of thread blocks that are guaranteed to be concurrently scheduled onto a group of SMs, where the goal is to enable efficient cooperation of threads across multiple SMs.
