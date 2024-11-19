@@ -51,9 +51,17 @@ prompt = st.text_input("Enter a prompt to generate an image:")
 resolution_options = {"Very Low (256x256)": (256, 256), "Low (512x512)": (512, 512), "Medium (768x768)": (768, 768)}
 resolution_label = st.selectbox("Select image resolution:", list(resolution_options.keys()))
 resolution = resolution_options[resolution_label]
-
 # GPU support input
 use_gpu = st.checkbox("Use GPU (if available)")
+x
+# Check if GPU is available and inform the user
+if use_gpu:
+    if torch.cuda.is_available():
+        st.success("GPU is available and will be used for image generation.")
+    else:
+        st.warning("GPU is not available. Falling back to CPU.")
+else:
+    st.info("Using CPU for image generation.")
 
 if st.button("Generate Image"):
     if prompt:

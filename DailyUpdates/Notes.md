@@ -103,3 +103,40 @@ In CUDA programming, there are two major concepts , one is host ,another one is 
  The following memories are exposed by the GPU architecture: Registers,these are private to each thread.The compiler makes decision about register utilization.L1/Shared memory(SMEM).L2 cache is shared across all SMs. so every thread in every CUDA block can access this memory.Global memory is the framebuffer size of the GPU and DRAM sitting in the GPU.The CUDA programming model also assumes that both the host and device maintain their own separate memory spaces, referred to as host memory and device memory, respectively.Cuda code also provides for data transfer between host and device memory over the PCIe bus
 
 In H100, there is a new concept called thread block clusters .A cluster is a group of thread blocks that are guaranteed to be concurrently scheduled onto a group of SMs, where the goal is to enable efficient cooperation of threads across multiple SMs.
+
+Nvidia Multi-Instance GPU(MIG) technology was introduced in the NVidia Ampere achitecture-based A100 Tensor Core GPU.
+
+![alt text](image-2.png)
+
+H100 includes a new transformer engine that is a custom hopper tensor core technology to dramatically accelerate the AI calculations for Transformers.At each layer of a Transformer model, the Transformer Engine analyzes the statistics of the putput values produced by the Tensor Core
+
+H100 also introduces the new NVLink network interconnect , a scalable version of NVLink that enables GPU-to-GPU communication among up to 256GPUs across multiple compute nodes。NVSwitch also provides hardware acceleration of collective operations with multicase and NVidia sharp in-netowrk reductions.Accekerated collectives include write broadcast(all_gather),reduce_scatter and broadcast atomics,NDR(Next Data Rate)400Gb/s InfiniBand networking acceleration for secure HPC and AI workloads.Nvidia is a member of the Confidential computing consortium .Data confidentiality, data integrity and code integrity.
+
+federated learning enable multiple organizations to work together to train or evaluate AI models without having to share each group's proprietary datasets
+
+DGX H100 is an AI powerhouse that features the groundbreaking Nvidia H100 Tensor Core GPU.
+
+DGX SuperPODS starts with 32 DGX H100 system, referred to as a "scalable unit"
+
+# 10/16/2024
+Only a small number of CUDA threads are now required to manage the full memory bandwidth of H100 using the new Tensor Memory Accelerator.while most other CUDA threads can be focused on general-purpose computations, such as pre-procssing and post-processing data for the new generation of Tensor Cores. Orchestrating the growing number of on-chip accelerators and diverse groups of general purpose threads requires synchronization.Tensor cores arfe specialized processing units designed to acceleratate deep learning and AI workloads.
+RAM is the 4th most expensive part of the compute chassis BOM, we recommend downgrading from the standard 2 TBytes to only 1TByte of RAM.
+8-Rail optimized networking 
+
+FenFETS cannot scale further and SRAM shrink has beed dead for a few nodes. GAA and backside power delivery .Rapidus .Most EUV lithography is actually used on interconnects(contacts, vias, ane metal layers),not the transistor layer itself.
+
+Deep learning is a specialized subset of machine learning that employs artificial neural networks to analze and interpret complext data.Techniques such as backpropagation are used to adjust the weights of connections between neurons ,minmizing errors and improving accuracy over time.
+
+Reinforcement learning(RL) is a branch of machine learning focused on how agents learn to make decisions by interacting with their environment.RL is a machine learning rechnique where an agent learns to perform tasks by taking actions in an environment and receiving feedback in the form of rewards or penalities.The goal is to maximize cumulative rewards over time through trail and error. Markov decison process(MDP).Reinforcement learning empowers agents to learn optimal behaviors in uncertain environments through feedback mechanisms, making it a pwoerful tool for developing intelligent systems capable of complex decision-making tasks.
+
+# 10/17/2024
+# 10/21/2024
+Time-sharing and space-sharing are two paradigms for GPU sharing, the primary goal for production clusters is to guarentee the performance of online workloads, xCUDA monitors the GPU memory allocation to limit the memory usage of offline workloads, DL workloads are usually classfied into two categories, online workload and offline workloads, according to the latency demand, online workload refers to latency critical inference, 
+
+# 11/12/2024
+1.人类所独有的高阶智慧能力只需要非常少的计算能力,但是无意识的技能和直觉却需要极大的运算能力,"要让电脑如成人般地下棋是相对容易的，但是要让电脑有如一岁小孩般的感知和行动能力却是相当困难甚至是不可能的"
+"
+
+
+# 11/19/2024
+right now , you are only foucs on data movement, not computing
